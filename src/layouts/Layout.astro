@@ -1,11 +1,19 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "mattbox.win" } = Astro.props;
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mattbox.win</title>
+    <title>{title}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2242%22 fill=%22%23497A47%22/></svg>">
-    <style>
+    <style is:global>
         * {
             box-sizing: border-box;
         }
@@ -97,17 +105,6 @@
     </style>
 </head>
 <body>
-    <main>
-        <h1><span class="status-dot"></span>mattbox.win</h1>
-        <hr class="accent-divider">
-        <p>Thanks for stopping by! This is just my site for experimenting with Cloudflare :)<br>
-            Please don't judge me - I don't know anything about web development...
-        </p>
-        <footer class="social-links">
-            <a href="https://github.com/mdbox037a" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <span class="separator">•</span>
-            <a href="https://www.linkedin.com/in/matthewdbox/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </footer>
-    </main>
+    <slot />
 </body>
 </html>
