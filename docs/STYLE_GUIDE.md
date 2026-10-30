@@ -12,7 +12,7 @@ The visual theme uses a minimal monochrome base highlighted by a signature green
 
 | Token Name | Hex / Value | Light Mode Usage | Dark Mode Usage |
 | :--- | :--- | :--- | :--- |
-| `--accent-green` | `#497A47` | Brand accent color, status dot, top border bar, hover links |
+| `--accent-green` | `#497A47` | Brand accent color, top border bar, hover links |
 | `--accent-border` | `rgba(73, 122, 71, 0.25)` (Light) / `rgba(73, 122, 71, 0.4)` (Dark) | Subtle divider lines and link separators |
 | `--bg-color` | `#ffffff` (Light) / `#121212` (Dark) | Main page background |
 | `--text-color` | `#111111` (Light) / `#f0f0f0` (Dark) | Headings & primary body text |
@@ -100,16 +100,13 @@ body {
 }
 ```
 
-### 2. Status Indicator Dot
-A glowing green circular indicator preceding the main domain title:
+### 2. Site Logo
+The site logo (`public/logo.png`) precedes the main domain title at 40x40px:
 ```css
-.status-dot {
-    width: 10px;
-    height: 10px;
-    background-color: var(--accent-green);
-    border-radius: 50%;
+.site-logo {
+    width: 40px;
+    height: 40px;
     display: inline-block;
-    box-shadow: 0 0 8px var(--accent-green);
 }
 ```
 
@@ -126,8 +123,9 @@ A subtle centered line below the heading that fades out at both ends:
 }
 ```
 
-### 4. Inline SVG Favicon
-Uses an inline Data URI containing a `#497A47` green circle:
+### 4. Favicon
+Uses the same `public/logo.png` image as the site logo, which is also used as the Apple touch icon:
 ```html
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2242%22 fill=%22%23497A47%22/></svg>">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="apple-touch-icon" href="/logo.png">
 ```
