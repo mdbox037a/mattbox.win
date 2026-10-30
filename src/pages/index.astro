@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import siteData from '../content/site.json';
+---
+
+<Layout title={siteData.title}>
+    <main>
+        <h1><span class="status-dot"></span>{siteData.title}</h1>
+        <hr class="accent-divider" />
+        <p>
+            {siteData.paragraphs[0]}<br />
+            {siteData.paragraphs[1]}
+        </p>
+        <footer class="social-links">
+            {siteData.socials.map((link, index) => (
+                <>
+                    {index > 0 && <span class="separator">•</span>}
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">{link.name}</a>
+                </>
+            ))}
+        </footer>
+    </main>
+</Layout>
